@@ -1,0 +1,93 @@
+{
+  "pdfs": [
+    {
+      "file_name": "DFSA1547_15954_VER260126.pdf",
+      "alias": "Markets Rules",
+      "module_code": "MKT",
+      "module_name": "Markets Rules",
+      "description": "Markets Rules covering offer of securities, governance, market disclosure, and listing requirements",
+      "chunking_strategy": "section_aware",
+      "chunk_size": 1000,
+      "chunk_overlap": 200,
+      "respect_sentences": true,
+      "respect_sections": true,
+      "page_filtering": {
+        "skip_cover_pages": true,
+        "skip_toc": true,
+        "skip_disclaimers": true,
+        "remove_headers_footers": true,
+        "toc_page_range": [2, 4],
+        "cover_page_range": [1, 1]
+      }
+    },
+    {
+      "file_name": "DFSA1547_1843_VER700126.pdf",
+      "alias": "General Module",
+      "module_code": "GEN",
+      "module_name": "General Module",
+      "description": "General regulatory requirements, authorisation, conduct of business, and general provisions",
+      "chunking_strategy": "section_aware",
+      "chunk_size": 1000,
+      "chunk_overlap": 200,
+      "respect_sentences": true,
+      "respect_sections": true,
+      "page_filtering": {
+        "skip_cover_pages": true,
+        "skip_toc": true,
+        "skip_disclaimers": true,
+        "remove_headers_footers": true,
+        "toc_page_range": [2, 3],
+        "cover_page_range": [1, 1]
+      }
+    },
+    {
+      "file_name": "DFSA1547_5717_VER630126.pdf",
+      "alias": "Glossary",
+      "module_code": "GLO",
+      "module_name": "Glossary Module",
+      "description": "Glossary of defined terms used throughout the DFSA Rulebook",
+      "chunking_strategy": "glossary",
+      "chunk_size": 500,
+      "chunk_overlap": 0,
+      "respect_sentences": false,
+      "respect_sections": true,
+      "glossary_settings": {
+        "keep_definitions_intact": true,
+        "definition_pattern": "^([A-Z][A-Za-z\\s]+(?:\\s+[A-Z][A-Za-z\\s]+)*)\\s+Has the meaning|Means|Includes",
+        "max_definition_length": 2000,
+        "term_extraction_pattern": "^([A-Z][A-Za-z\\s]+(?:\\s+[A-Z][A-Za-z\\s]+)*)"
+      },
+      "page_filtering": {
+        "skip_cover_pages": true,
+        "skip_toc": true,
+        "skip_disclaimers": true,
+        "remove_headers_footers": true,
+        "toc_page_range": [2, 2],
+        "cover_page_range": [1, 1]
+      }
+    }
+  ],
+  "default_chunking": {
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "respect_sentences": true,
+    "respect_sections": true
+  },
+  "default_page_filtering": {
+    "skip_cover_pages": true,
+    "skip_toc": true,
+    "skip_disclaimers": true,
+    "remove_headers_footers": true,
+    "toc_page_range": null,
+    "cover_page_range": [1, 1]
+  },
+  "module_strategies": {
+    "GLO": {
+      "strategy": "glossary",
+      "chunk_size": 500,
+      "chunk_overlap": 0,
+      "keep_definitions_intact": true
+    }
+  }
+}
+

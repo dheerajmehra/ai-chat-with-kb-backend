@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  ingestion-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.ingestion
+    container_name: dfsa-ingestion-service
+    ports:
+      - "8001:8001"
+    environment:
+      - VECTOR_STORE_TYPE=${VECTOR_STORE_TYPE:-file}
+      - VECTOR_STORE_PATH=${VECTOR_STORE_PATH:-data/vector_store.pkl}
+      - EMBEDDING_PROVIDER=${EMBEDDING_PROVIDER:-sentence-transformers}
+      - PDF_LIBRARY=${PDF_LIBRARY:-pdfplumber}
+    volumes:
+      - ./downloads:/app/downloads:ro
+      - ./shared/config:/app/shared/config:ro
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  chat-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.chat
+    container_name: dfsa-chat-service
+    ports:
+      - "8002:8002"
+    environment:
+      - VECTOR_STORE_TYPE=${VECTOR_STORE_TYPE:-file}
+      - VECTOR_STORE_PATH=${VECTOR_STORE_PATH:-data/vector_store.pkl}
+      - EMBEDDING_PROVIDER=${EMBEDDING_PROVIDER:-sentence-transformers}
+    volumes:
+      - ./downloads:/app/downloads:ro
+      - ./shared/config:/app/shared/config:ro
+      - ./data:/app/data
+      - ./logs:/app/logs
+    env_file:
+      - .env
+    restart: unless-stopped
+    depends_on:
+      - ingestion-service
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  vector_store_data:
+    driver: local
+

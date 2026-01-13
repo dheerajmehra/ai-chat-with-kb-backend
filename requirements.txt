@@ -1,0 +1,42 @@
+# FastAPI and server
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+
+# PDF Processing
+# The code supports both PyMuPDF and pdfplumber with automatic fallback.
+# By default, pdfplumber is installed (works on all Python versions).
+#
+# To use PyMuPDF instead (faster, but may not work on Python 3.13):
+#   1. For Python 3.11/3.12: pip install PyMuPDF>=1.23.0
+#   2. For Python 3.13: Use conda: conda install -c conda-forge pymupdf
+#   3. Or stick with pdfplumber (recommended for compatibility)
+#
+# PyMuPDF>=1.23.0; python_version<"3.13"  # Commented out to avoid installation errors
+pdfplumber==0.10.3  # Default PDF library - works everywhere
+
+# Vectorization
+openai>=1.3.7
+azure-ai-textanalytics>=5.3.0
+azure-search-documents>=11.4.0
+sentence-transformers>=2.2.2
+
+# Data Processing
+# Using newer versions compatible with Python 3.13
+pandas>=2.2.0  # Python 3.13 compatible
+numpy>=1.26.0
+
+# Configuration
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+python-dotenv>=1.0.0
+
+# Utilities
+aiofiles>=23.2.1
+loguru>=0.7.2
+tenacity>=8.2.3
+
+# Optional: For advanced chunking
+langchain>=0.0.350
+langchain-text-splitters>=0.0.1
+

@@ -1,0 +1,6 @@
+1. chunks do not have 
+2. some sections have guidance - each one forms a new chunk 
+3. section hierarchy is incorrect and contains file version number at times
+4. GLO - some definitions are references to other sections.Eg. Account Information Service - Has the meaning given in GEN Rule 2.32.1(3).
+5. skipping is being done per page - table of content, etc.... need to fix the approach in prod
+
