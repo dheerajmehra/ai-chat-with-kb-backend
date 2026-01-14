@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY shared/ ./shared/
 
 # Copy chat service
-COPY chat-service/ ./chat-service/
+COPY chat_service/ ./chat_service/
 
 # Create necessary directories
 RUN mkdir -p logs data downloads
@@ -26,5 +26,5 @@ RUN mkdir -p logs data downloads
 EXPOSE 8002
 
 # Run chat service
-CMD ["uvicorn", "chat-service.api.main:app", "--host", "0.0.0.0", "--port", "8002"]
+CMD ["uvicorn", "chat_service.api.main:app", "--host", "0.0.0.0", "--port", "8002"]
 

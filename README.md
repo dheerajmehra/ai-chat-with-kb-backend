@@ -25,10 +25,10 @@ This project processes DFSA rulebook PDFs with structure-aware extraction, intel
 │   ├── services/            # Core services (vector store, embedding, ingestion)
 │   ├── utils/               # Utilities (PDF extraction, chunking, etc.)
 │   └── config/              # Configuration files
-├── ingestion-service/        # PDF vectorization service (Port 8001)
+├── ingestion_service/        # PDF vectorization service (Port 8001)
 │   └── api/
 │       └── main.py          # Ingestion endpoints
-├── chat-service/            # Chat and document serving service (Port 8002)
+├── chat_service/            # Chat and document serving service (Port 8002)
 │   └── api/
 │       └── main.py          # Chat endpoints
 ├── api/                     # Legacy single-backend (for backward compatibility)
@@ -204,10 +204,10 @@ If using Azure AI Search, create an index with the following schema:
 
 # Or run individually:
 # Terminal 1: Ingestion Service (Port 8001)
-uvicorn ingestion-service.api.main:app --reload --host 0.0.0.0 --port 8001
+uvicorn ingestion_service.api.main:app --reload --host 0.0.0.0 --port 8001
 
 # Terminal 2: Chat Service (Port 8002)
-uvicorn chat-service.api.main:app --reload --host 0.0.0.0 --port 8002
+uvicorn chat_service.api.main:app --reload --host 0.0.0.0 --port 8002
 ```
 
 **Ingestion Service** will be available at `http://localhost:8001` with interactive docs at `http://localhost:8001/docs`.

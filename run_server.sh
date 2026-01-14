@@ -30,7 +30,7 @@ run_ingestion() {
     echo -e "${GREEN}Ingestion Service: http://localhost:8001${NC}"
     echo -e "${GREEN}Health Check: http://localhost:8001/health${NC}"
     echo ""
-    uvicorn ingestion-service.api.main:app --reload --host 0.0.0.0 --port 8001
+    uvicorn ingestion_service.api.main:app --reload --host 0.0.0.0 --port 8001
 }
 
 # Function to run chat service
@@ -39,7 +39,7 @@ run_chat() {
     echo -e "${GREEN}Chat Service: http://localhost:8002${NC}"
     echo -e "${GREEN}Health Check: http://localhost:8002/health${NC}"
     echo ""
-    uvicorn chat-service.api.main:app --reload --host 0.0.0.0 --port 8002
+    uvicorn chat_service.api.main:app --reload --host 0.0.0.0 --port 8002
 }
 
 # Function to run both services in background
@@ -52,10 +52,10 @@ run_both() {
     echo ""
     
     # Run both services in background
-    uvicorn ingestion-service.api.main:app --reload --host 0.0.0.0 --port 8001 &
+    uvicorn ingestion_service.api.main:app --reload --host 0.0.0.0 --port 8001 &
     INGESTION_PID=$!
     
-    uvicorn chat-service.api.main:app --reload --host 0.0.0.0 --port 8002 &
+    uvicorn chat_service.api.main:app --reload --host 0.0.0.0 --port 8002 &
     CHAT_PID=$!
     
     # Wait for both processes

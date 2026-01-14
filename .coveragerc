@@ -1,0 +1,26 @@
+[run]
+# Measure coverage for shared code and both service modules
+source = shared,chat_service,ingestion_service
+omit = 
+    */tests/*
+    */test_*.py
+    */__pycache__/*
+    */venv/*
+    */.venv/*
+    */migrations/*
+    */to_delete/*
+    */scripts/*
+    */imp_guides_md/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise AssertionError
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    @abstractmethod
+
+[html]
+directory = htmlcov

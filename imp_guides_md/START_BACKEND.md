@@ -44,14 +44,14 @@ cd /Users/dheerajmehra/Documents/projects/ai-chat-with-knowledgebase/ai-chat-wit
 ```bash
 cd /Users/dheerajmehra/Documents/projects/ai-chat-with-knowledgebase/ai-chat-with-kb-backend
 source venv/bin/activate
-uvicorn ingestion-service.api.main:app --reload --host 0.0.0.0 --port 8001
+uvicorn ingestion_service.api.main:app --reload --host 0.0.0.0 --port 8001
 ```
 
 **Terminal 2 - Chat Service:**
 ```bash
 cd /Users/dheerajmehra/Documents/projects/ai-chat-with-knowledgebase/ai-chat-with-kb-backend
 source venv/bin/activate
-uvicorn chat-service.api.main:app --reload --host 0.0.0.0 --port 8002
+uvicorn chat_service.api.main:app --reload --host 0.0.0.0 --port 8002
 ```
 
 ## Step-by-Step Instructions
@@ -237,8 +237,8 @@ If you haven't set up the environment yet:
 
 **To stop background processes:**
 ```bash
-pkill -f "uvicorn.*ingestion-service"
-pkill -f "uvicorn.*chat-service"
+pkill -f "uvicorn.*ingestion_service"
+pkill -f "uvicorn.*chat_service"
 ```
 
 ## Running in Background (Optional)
@@ -247,18 +247,18 @@ To run services in the background:
 
 **Ingestion Service:**
 ```bash
-nohup uvicorn ingestion-service.api.main:app --reload --host 0.0.0.0 --port 8001 > ingestion.log 2>&1 &
+nohup uvicorn ingestion_service.api.main:app --reload --host 0.0.0.0 --port 8001 > ingestion.log 2>&1 &
 ```
 
 **Chat Service:**
 ```bash
-nohup uvicorn chat-service.api.main:app --reload --host 0.0.0.0 --port 8002 > chat.log 2>&1 &
+nohup uvicorn chat_service.api.main:app --reload --host 0.0.0.0 --port 8002 > chat.log 2>&1 &
 ```
 
 **To stop:**
 ```bash
-pkill -f "uvicorn.*ingestion-service"
-pkill -f "uvicorn.*chat-service"
+pkill -f "uvicorn.*ingestion_service"
+pkill -f "uvicorn.*chat_service"
 ```
 
 ## Using Docker Compose (Alternative)
@@ -311,8 +311,8 @@ Once the backend services are running:
 ./run_server.sh chat
 
 # Manual start (both in separate terminals)
-uvicorn ingestion-service.api.main:app --reload --host 0.0.0.0 --port 8001
-uvicorn chat-service.api.main:app --reload --host 0.0.0.0 --port 8002
+uvicorn ingestion_service.api.main:app --reload --host 0.0.0.0 --port 8001
+uvicorn chat_service.api.main:app --reload --host 0.0.0.0 --port 8002
 ```
 
 ## Architecture Notes

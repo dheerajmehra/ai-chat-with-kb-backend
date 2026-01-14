@@ -11,5 +11,5 @@ echo "Ingestion Service: http://localhost:8001"
 echo "Health Check: http://localhost:8001/health"
 echo ""
 
-uvicorn ingestion-service.api.main:app --reload --host 0.0.0.0 --port 8001
+uvicorn ingestion_service.api.main:app --reload --host 0.0.0.0 --port 8001
 

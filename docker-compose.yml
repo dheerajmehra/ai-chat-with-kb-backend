@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  ingestion-service:
+  ingestion_service:
     build:
       context: .
       dockerfile: Dockerfile.ingestion
-    container_name: dfsa-ingestion-service
+    container_name: dfsa-ingestion_service
     ports:
       - "8001:8001"
     environment:
@@ -28,11 +28,11 @@ services:
       timeout: 10s
       retries: 3
 
-  chat-service:
+  chat_service:
     build:
       context: .
       dockerfile: Dockerfile.chat
-    container_name: dfsa-chat-service
+    container_name: dfsa-chat_service
     ports:
       - "8002:8002"
     environment:
@@ -48,7 +48,7 @@ services:
       - .env
     restart: unless-stopped
     depends_on:
-      - ingestion-service
+      - ingestion_service
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
       interval: 30s

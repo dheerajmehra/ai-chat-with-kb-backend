@@ -17,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY shared/ ./shared/
 
 # Copy ingestion service
-COPY ingestion-service/ ./ingestion-service/
+COPY ingestion_service/ ./ingestion_service/
 
 # Create necessary directories
 RUN mkdir -p uploads logs data downloads
@@ -26,5 +26,5 @@ RUN mkdir -p uploads logs data downloads
 EXPOSE 8001
 
 # Run ingestion service
-CMD ["uvicorn", "ingestion-service.api.main:app", "--host", "0.0.0.0", "--port", "8001"]
+CMD ["uvicorn", "ingestion_service.api.main:app", "--host", "0.0.0.0", "--port", "8001"]
 

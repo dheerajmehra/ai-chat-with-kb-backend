@@ -11,5 +11,5 @@ echo "Chat Service: http://localhost:8002"
 echo "Health Check: http://localhost:8002/health"
 echo ""
 
-uvicorn chat-service.api.main:app --reload --host 0.0.0.0 --port 8002
+uvicorn chat_service.api.main:app --reload --host 0.0.0.0 --port 8002
 
